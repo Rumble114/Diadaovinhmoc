@@ -5,35 +5,39 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
     <title>Giới thiệu Nhóm</title>
+    <link rel="icon" href="https://img.icons8.com/?size=100&id=qnZWfcfXaNaR&format=png&color=000000" type="image/icon type">
     <style>
-      #projects .projects {
-        padding: 2.5%;
-      }
-      #projects .projects-header {
-        display: flex;
-        justify-content:space-between;
-        align-items: center;
-        width: 100%;
-        height: 100%;
-        max-width: 1300px;
-        margin: 0 auto;
-        padding: 0 10px;
-      }
-      #projects .section-titl {
-        font-size: 6rem;
-        a {
-          text-decoration: none; /* Loại bỏ gạch chân nếu cần */
+        #projects .projects {
+        padding: 2.5%; /* Thêm khoảng đệm (padding) 2.5% cho phần tử có class "projects" bên trong phần tử có id "projects" */
         }
         
-        a .black {
-          color: black; /* Chữ màu đen */
+        #projects .projects-header {
+            display: flex; /* Sử dụng flexbox để sắp xếp các phần tử con */
+            justify-content: space-between; /* Căn các phần tử con ra hai đầu, tạo khoảng cách giữa chúng */
+            align-items: center; /* Căn giữa các phần tử con theo chiều dọc */
+            width: 100%; /* Chiều rộng tối đa là 100% của phần tử cha */
+            height: 100%; /* Chiều cao tối đa là 100% của phần tử cha */
+            max-width: 1300px; /* Giới hạn chiều rộng tối đa là 1300px */
+            margin: 0 auto; /* Căn giữa phần tử theo chiều ngang */
+            padding: 0 10px; /* Thêm padding 10px ở hai bên trái và phải */
         }
         
-        a .red {
-          color: red; /* Chữ màu đỏ */
+        #projects .section-titl {
+            font-size: 6rem; /* Kích thước chữ là 6rem (tương ứng với 6 lần kích thước font gốc) */
+            
+            a {
+                text-decoration: none; /* Loại bỏ gạch chân mặc định của thẻ <a> */
+            }
+            
+            a .black {
+                color: black; /* Thiết lập màu chữ đen cho phần tử có class "black" bên trong thẻ <a> */
+            }
+            
+            a .red {
+                color: red; /* Thiết lập màu chữ đỏ cho phần tử có class "red" bên trong thẻ <a> */
+            }
         }
-        
-      }
+
     </style>
 </head>
 <body>
