@@ -1,0 +1,724 @@
+@import 'https://fonts.googleapis.com/css?family=Montserrat:300, 400, 700&display=swap'; /* Nhập font Montserrat từ Google Fonts */
+* {
+	padding: 0; /* Đặt padding mặc định là 0 cho tất cả các phần tử */
+	margin: 0; /* Đặt margin mặc định là 0 cho tất cả các phần tử */
+	box-sizing: border-box; /* Thiết lập box-sizing để bao gồm padding và border trong kích thước tổng thể */
+}
+html {
+	font-size: 10px; /* Đặt kích thước font cơ bản cho html */
+	font-family: 'Montserrat', sans-serif; /* Thiết lập font chữ cho toàn bộ trang */
+	scroll-behavior: smooth; /* Thiết lập hiệu ứng cuộn mượt mà cho trang */
+}
+a {
+	text-decoration: none; /* Bỏ gạch chân cho tất cả các liên kết */
+}
+.container {
+	min-height: 100vh; /* Đặt chiều cao tối thiểu cho container bằng chiều cao của viewport */
+	width: 100%; /* Đặt chiều rộng của container bằng 100% */
+	display: flex; /* Sử dụng flexbox để bố trí các phần tử bên trong */
+	align-items: center; /* Căn giữa các phần tử theo chiều dọc */
+	justify-content: center; /* Căn giữa các phần tử theo chiều ngang */
+}
+
+.projects.container {
+	min-height: 100vh; /* Đặt chiều cao tối thiểu cho container dự án bằng chiều cao của viewport */
+	width: 100%; /* Đặt chiều rộng của container dự án bằng 100% */
+	display: block; /* Đặt chế độ hiển thị là block */
+	align-items: center; /* Căn giữa các phần tử theo chiều dọc */
+	justify-content: center; /* Căn giữa các phần tử theo chiều ngang */
+}
+
+img {
+	height: 100%; /* Đặt chiều cao của hình ảnh bằng 100% */
+	width: 100%; /* Đặt chiều rộng của hình ảnh bằng 100% */
+	object-fit: cover; /* Đảm bảo hình ảnh bao phủ toàn bộ không gian mà không bị biến dạng */
+}
+p {
+	color: black; /* Đặt màu chữ cho đoạn văn là đen */
+	font-size: 1.4rem; /* Đặt kích thước font cho đoạn văn */
+	margin-top: 5px; /* Đặt khoảng cách trên cho đoạn văn */
+	line-height: 2.5rem; /* Đặt chiều cao dòng cho đoạn văn */
+	font-weight: 300; /* Đặt độ đậm cho font chữ */
+	letter-spacing: 0.05rem; /* Đặt khoảng cách giữa các chữ cái */
+}
+.section-title {
+	font-size: 4rem; /* Đặt kích thước font cho tiêu đề phần */
+	font-weight: 300; /* Đặt độ đậm cho font chữ */
+	color: black; /* Đặt màu chữ cho tiêu đề phần là đen */
+	margin-bottom: 10px; /* Đặt khoảng cách dưới cho tiêu đề phần */
+	text-transform: uppercase; /* Chuyển đổi tất cả các chữ cái thành chữ hoa */
+	letter-spacing: 0.2rem; /* Đặt khoảng cách giữa các chữ cái */
+	text-align: center; /* Căn giữa tiêu đề phần */
+}
+.section-title span {
+	color: crimson; /* Đặt màu chữ cho phần span trong tiêu đề phần là màu đỏ thẫm */
+}
+
+.cta {
+	display: inline-block; /* Đặt chế độ hiển thị là inline-block cho nút CTA */
+	padding: 10px 30px; /* Đặt padding cho nút CTA */
+	color: white; /* Đặt màu chữ cho nút CTA là trắng */
+	background-color: transparent; /* Đặt màu nền cho nút CTA là trong suốt */
+	border: 2px solid crimson; /* Đặt viền cho nút CTA với màu đỏ thẫm */
+	font-size: 2rem; /* Đặt kích thước font cho nút CTA */
+	text-transform: uppercase; /* Chuyển đổi tất cả các chữ cái trong nút CTA thành chữ hoa */
+	letter-spacing: 0.1rem; /* Đặt khoảng cách giữa các chữ cái trong nút CTA */
+	margin-top: 30px; /* Đặt khoảng cách trên cho nút CTA */
+	transition: 0.3s ease; /* Thiết lập hiệu ứng chuyển tiếp cho nút CTA */
+	transition-property: background-color, color; /* Thiết lập các thuộc tính sẽ có hiệu ứng chuyển tiếp */
+}
+.cta:hover {
+	color: white; /* Đặt màu chữ cho nút CTA khi hover là trắng */
+	background-color: crimson; /* Đặt màu nền cho nút CTA khi hover là màu đỏ thẫm */
+}
+.brand h1 {
+	font-size: 3rem; /* Đặt kích thước font cho tiêu đề thương hiệu */
+	text-transform: uppercase; /* Chuyển đổi tất cả các chữ cái trong tiêu đề thương hiệu thành chữ hoa */
+	color: white; /* Đặt màu chữ cho tiêu đề thương hiệu là trắng */
+}
+.brand h1 span {
+	color: crimson; /* Đặt màu chữ cho phần span trong tiêu đề thương hiệu là màu đỏ thẫm */
+}
+
+/* Header section */
+#header {
+	position: fixed; /* Đặt vị trí của header là cố định */
+	z-index: 1000; /* Đặt z-index để đảm bảo header nằm trên các phần tử khác */
+	left: 0; /* Đặt vị trí bên trái của header là 0 */
+	top: 0; /* Đặt vị trí trên cùng của header là 0 */
+	width: 100vw; /* Đặt chiều rộng của header bằng chiều rộng của viewport */
+	height: auto; /* Đặt chiều cao của header là tự động */
+}
+#header .header {
+	min-height: 8vh; /* Đặt chiều cao tối thiểu cho header là 8% chiều cao của viewport */
+	background-color: rgba(31, 30, 30, 0.24); /* Đặt màu nền cho header với độ trong suốt */
+	transition: 0.3s ease background-color; /* Thiết lập hiệu ứng chuyển tiếp cho màu nền của header */
+}
+#header .nav-bar {
+	display: flex; /* Sử dụng flexbox để bố trí các phần tử trong nav-bar */
+	align-items: center; /* Căn giữa các phần tử theo chiều dọc */
+	justify-content: space-between; /* Căn giữa các phần tử theo chiều ngang với khoảng cách đều */
+	width: 100%; /* Đặt chiều rộng của nav-bar bằng 100% */
+	height: 100%; /* Đặt chiều cao của nav-bar bằng 100% */
+	max-width: 1300px; /* Đặt chiều rộng tối đa cho nav-bar */
+	padding: 0 10px; /* Đặt padding cho nav-bar */
+}
+#header .nav-list ul {
+	list-style: none; /* Bỏ dấu đầu dòng cho danh sách */
+	position: absolute; /* Đặt vị trí của danh sách là tuyệt đối */
+	background-color: rgb(31, 30, 30); /* Đặt màu nền cho danh sách là màu xám đen */
+	width: 100vw; /* Đặt chiều rộng của danh sách bằng chiều rộng của viewport */
+	height: 100vh; /* Đặt chiều cao của danh sách bằng chiều cao của viewport */
+	left: 100%; /* Đặt vị trí bên trái của danh sách là 100% */
+	top: 0; /* Đặt vị trí trên cùng của danh sách là 0 */
+	display: flex; /* Sử dụng flexbox để bố trí các phần tử trong danh sách */
+	flex-direction: column; /* Đặt hướng của các phần tử trong danh sách là cột */
+	justify-content: center; /* Căn giữa các phần tử theo chiều dọc */
+	align-items: center; /* Căn giữa các phần tử theo chiều ngang */
+	z-index: 1; /* Đặt z-index để đảm bảo danh sách nằm trên các phần tử khác */
+	overflow-x: hidden; /* Ẩn phần tràn theo chiều ngang */
+	transition: 0.5s ease left; /* Thiết lập hiệu ứng chuyển tiếp cho vị trí bên trái của danh sách */
+}
+#header .nav-list ul.active {
+	left: 0%; /* Đặt vị trí bên trái của danh sách là 0% khi danh sách hoạt động */
+}
+#header .nav-list ul a {
+	font-size: 2.5rem; /* Đặt kích thước font cho các liên kết trong danh sách */
+	font-weight: 500; /* Đặt độ đậm cho font chữ */
+	letter-spacing: 0.2rem; /* Đặt khoảng cách giữa các chữ cái */
+	text-decoration: none; /* Bỏ gạch chân cho các liên kết */
+	color: white; /* Đặt màu chữ cho các liên kết là trắng */
+	text-transform: uppercase; /* Chuyển đổi tất cả các chữ cái trong liên kết thành chữ hoa */
+	padding: 20px; /* Đặt padding cho các liên kết */
+	display: block; /* Đặt chế độ hiển thị cho các liên kết là block */
+}
+#header .nav-list ul a::after {
+	content: attr(data-after); /* Thiết lập nội dung cho phần tử giả sau là giá trị của thuộc tính data-after */
+	position: absolute; /* Đặt vị trí của phần tử giả sau là tuyệt đối */
+	top: 50%; /* Đặt vị trí trên cùng của phần tử giả sau là 50% */
+	left: 50%; /* Đặt vị trí bên trái của phần tử giả sau là 50% */
+	transform: translate(-50%, -50%) scale(0); /* Căn giữa và thu nhỏ phần tử giả sau */
+	color: rgba(240, 248, 255, 0.021); /* Đặt màu chữ cho phần tử giả sau với độ trong suốt */
+	font-size: 13rem; /* Đặt kích thước font cho phần tử giả sau */
+	letter-spacing: 50px; /* Đặt khoảng cách giữa các chữ cái cho phần tử giả sau */
+	z-index: -1; /* Đặt z-index để phần tử giả sau nằm dưới các phần tử khác */
+	transition: 0.3s ease letter-spacing; /* Thiết lập hiệu ứng chuyển tiếp cho khoảng cách giữa các chữ cái */
+}
+#header .nav-list ul li:hover a::after {
+	transform: translate(-50%, -50%) scale(1); /* Phóng to phần tử giả sau khi hover */
+	letter-spacing: initial; /* Đặt khoảng cách giữa các chữ cái về giá trị ban đầu khi hover */
+}
+#header .nav-list ul li:hover a {
+	color: crimson; /* Đặt màu chữ cho các liên kết khi hover là màu đỏ thẫm */
+}
+#header .hamburger {
+	height: 60px; /* Đặt chiều cao cho nút hamburger */
+	width: 60px; /* Đặt chiều rộng cho nút hamburger */
+	display: inline-block; /* Đặt chế độ hiển thị cho nút hamburger là inline-block */
+	border: 3px solid white; /* Đặt viền cho nút hamburger với màu trắng */
+	border-radius: 50%; /* Đặt bo tròn cho nút hamburger */
+	position: relative; /* Đặt vị trí của nút hamburger là tương đối */
+	display: flex; /* Sử dụng flexbox để bố trí các phần tử bên trong nút hamburger */
+	align-items: center; /* Căn giữa các phần tử theo chiều dọc */
+	justify-content: center; /* Căn giữa các phần tử theo chiều ngang */
+	z-index: 100; /* Đặt z-index để đảm bảo nút hamburger nằm trên các phần tử khác */
+	cursor: pointer; /* Đặt con trỏ chuột thành hình bàn tay khi hover */
+	transform: scale(0.8); /* Thu nhỏ kích thước nút hamburger */
+	margin-right: 20px; /* Đặt khoảng cách bên phải cho nút hamburger */
+}
+#header .hamburger:after {
+	position: absolute; /* Đặt vị trí của phần tử giả sau là tuyệt đối */
+	content: ''; /* Không có nội dung cho phần tử giả sau */
+	height: 100%; /* Đặt chiều cao cho phần tử giả sau bằng 100% */
+	width: 100%; /* Đặt chiều rộng cho phần tử giả sau bằng 100% */
+	border-radius: 50%; /* Đặt bo tròn cho phần tử giả sau */
+	border: 3px solid white; /* Đặt viền cho phần tử giả sau với màu trắng */
+	animation: hamburger_puls 1s ease infinite; /* Thiết lập hiệu ứng nhấp nháy cho phần tử giả sau */
+}
+#header .hamburger .bar {
+	height: 2px; /* Đặt chiều cao cho thanh bar trong nút hamburger */
+	width: 30px; /* Đặt chiều rộng cho thanh bar trong nút hamburger */
+	position: relative; /* Đặt vị trí của thanh bar là tương đối */
+	background-color: white; /* Đặt màu nền cho thanh bar là trắng */
+	z-index: -1; /* Đặt z-index để thanh bar nằm dưới các phần tử khác */
+}
+#header .hamburger .bar::after,
+#header .hamburger .bar::before {
+	content: ''; /* Không có nội dung cho các phần tử giả trước và sau */
+	position: absolute; /* Đặt vị trí của các phần tử giả là tuyệt đối */
+	height: 100%; /* Đặt chiều cao cho các phần tử giả bằng 100% */
+	width: 100%; /* Đặt chiều rộng cho các phần tử giả bằng 100% */
+	left: 0; /* Đặt vị trí bên trái cho các phần tử giả là 0 */
+	background-color: white; /* Đặt màu nền cho các phần tử giả là trắng */
+	transition: 0.3s ease; /* Thiết lập hiệu ứng chuyển tiếp cho các phần tử giả */
+	transition-property: top, bottom; /* Thiết lập các thuộc tính sẽ có hiệu ứng chuyển tiếp */
+}
+#header .hamburger .bar::after {
+	top: 8px; /* Đặt vị trí trên cùng cho phần tử giả sau là 8px */
+}
+#header .hamburger .bar::before {
+	bottom: 8px; /* Đặt vị trí dưới cùng cho phần tử giả trước là 8px */
+}
+#header .hamburger.active .bar::before {
+	bottom: 0; /* Đặt vị trí dưới cùng cho phần tử giả trước là 0 khi nút hamburger hoạt động */
+}
+#header .hamburger.active .bar::after {
+	top: 0; /* Đặt vị trí trên cùng cho phần tử giả sau là 0 khi nút hamburger hoạt động */
+}
+/* End Header section */
+
+/* Hero Section */
+#hero {
+	background-image: url(./img/dia-dao-vinh-moc-08.jpg); /* Đặt hình nền cho phần hero */
+	background-size: cover; /* Đảm bảo hình nền bao phủ toàn bộ không gian */
+	background-position: top center; /* Đặt vị trí hình nền ở trên cùng và giữa */
+	position: relative; /* Đặt vị trí của phần hero là tương đối */
+	z-index: 1; /* Đặt z-index để phần hero nằm trên các phần tử khác */
+}
+#hero::after {
+	content: ''; /* Không có nội dung cho phần tử giả sau */
+	position: absolute; /* Đặt vị trí của phần tử giả sau là tuyệt đối */
+	left: 0; /* Đặt vị trí bên trái cho phần tử giả sau là 0 */
+	top: 0; /* Đặt vị trí trên cùng cho phần tử giả sau là 0 */
+	height: 100%; /* Đặt chiều cao cho phần tử giả sau bằng 100% */
+	width: 100%; /* Đặt chiều rộng cho phần tử giả sau bằng 100% */
+	background-color: black; /* Đặt màu nền cho phần tử giả sau là đen */
+	opacity: 0.7; /* Đặt độ trong suốt cho phần tử giả sau */
+	z-index: -1; /* Đặt z-index để phần tử giả sau nằm dưới các phần tử khác */
+}
+#hero .hero {
+	max-width: 1200px; /* Đặt chiều rộng tối đa cho phần hero */
+	margin: 0 auto; /* Căn giữa phần hero */
+	padding: 0 50px; /* Đặt padding cho phần hero */
+	justify-content: flex-start; /* Căn trái các phần tử bên trong phần hero */
+}
+#hero h1 {
+	display: block; /* Đặt chế độ hiển thị cho tiêu đề h1 là block */
+	width: fit-content; /* Đặt chiều rộng cho tiêu đề h1 theo nội dung */
+	font-size: 4rem; /* Đặt kích thước font cho tiêu đề h1 */
+	position: relative; /* Đặt vị trí của tiêu đề h1 là tương đối */
+	color: transparent; /* Đặt màu chữ cho tiêu đề h1 là trong suốt */
+	animation: text_reveal 0.5s ease forwards; /* Thiết lập hiệu ứng hoạt hình cho tiêu đề h1 */
+	animation-delay: 1s; /* Đặt độ trễ cho hiệu ứng hoạt hình */
+}
+#hero h1:nth-child(1) {
+	animation-delay: 1s; /* Đặt độ trễ cho hiệu ứng hoạt hình của tiêu đề h1 đầu tiên */
+}
+#hero h1:nth-child(2) {
+	animation-delay: 2s; /* Đặt độ trễ cho hiệu ứng hoạt hình của tiêu đề h1 thứ hai */
+}
+#hero h1:nth-child(3) {
+	animation: text_reveal_name 0.5s ease forwards; /* Thiết lập hiệu ứng hoạt hình cho tiêu đề h1 thứ ba */
+	animation-delay: 3s; /* Đặt độ trễ cho hiệu ứng hoạt hình của tiêu đề h1 thứ ba */
+}
+#hero h1 span {
+	position: absolute; /* Đặt vị trí của phần span là tuyệt đối */
+	top: 0; /* Đặt vị trí trên cùng cho phần span là 0 */
+	left: 0; /* Đặt vị trí bên trái cho phần span là 0 */
+	height: 100%; /* Đặt chiều cao cho phần span bằng 100% */
+	width: 0; /* Đặt chiều rộng cho phần span là 0 */
+	background-color: crimson; /* Đặt màu nền cho phần span là màu đỏ thẫm */
+	animation: text_reveal_box 1s ease; /* Thiết lập hiệu ứng hoạt hình cho phần span */
+	animation-delay: 0.5s; /* Đặt độ trễ cho hiệu ứng hoạt hình của phần span */
+}
+#hero h1:nth-child(1) span {
+	animation-delay: 0.5s; /* Đặt độ trễ cho hiệu ứng hoạt hình của phần span trong tiêu đề h1 đầu tiên */
+}
+#hero h1:nth-child(2) span {
+	animation-delay: 1.5s; /* Đặt độ trễ cho hiệu ứng hoạt hình của phần span trong tiêu đề h1 thứ hai */
+}
+#hero h1:nth-child(3) span {
+	animation-delay: 2.5s; /* Đặt độ trễ cho hiệu ứng hoạt hình của phần span trong tiêu đề h1 thứ ba */
+}
+
+/* End Hero Section */
+/* Services Section */
+#services .services {
+	flex-direction: column; /* Đặt hướng của các phần tử trong dịch vụ là cột */
+	text-align: center; /* Căn giữa văn bản trong phần dịch vụ */
+	max-width: 1500px; /* Đặt chiều rộng tối đa cho phần dịch vụ */
+	margin: 0 auto; /* Căn giữa phần dịch vụ */
+	padding: 100px 0; /* Đặt padding cho phần dịch vụ */
+}
+#services .service-top {
+	max-width: 500px; /* Đặt chiều rộng tối đa cho phần dịch vụ trên cùng */
+	margin: 0 auto; /* Căn giữa phần dịch vụ trên cùng */
+}
+#services .service-bottom {
+	align-items: center; /* Căn giữa các phần tử theo chiều dọc trong phần dịch vụ dưới cùng */
+	justify-content: center; /* Căn giữa các phần tử theo chiều ngang trong phần dịch vụ dưới cùng */
+	flex-wrap: wrap; /* Cho phép các phần tử trong phần dịch vụ dưới cùng bọc lại khi không đủ không gian */
+	margin-top: 50px; /* Đặt khoảng cách trên cho phần dịch vụ dưới cùng */
+}
+#services .service-item {
+	flex-basis: 80%; /* Đặt chiều rộng cơ bản cho mỗi mục dịch vụ là 80% */
+	display: flex; /* Sử dụng flexbox để bố trí các phần tử bên trong mục dịch vụ */
+	align-items: flex-start; /* Căn trên các phần tử theo chiều dọc */
+	justify-content: center; /* Căn giữa các phần tử theo chiều ngang */
+	flex-direction: column; /* Đặt hướng của các phần tử bên trong mục dịch vụ là cột */
+	padding: 30px; /* Đặt padding cho mỗi mục dịch vụ */
+	border-radius: 10px; /* Bo tròn các góc của mục dịch vụ */
+	background-size: cover; /* Đảm bảo hình nền của mục dịch vụ bao phủ toàn bộ không gian */
+	margin: 10px 5%; /* Đặt khoảng cách cho mỗi mục dịch vụ */
+	position: relative; /* Đặt vị trí của mục dịch vụ là tương đối */
+	z-index: 1; /* Đặt z-index để mục dịch vụ nằm trên các phần tử khác */
+	overflow: hidden; /* Ẩn phần tràn cho mục dịch vụ */
+}
+#services .service-item::after {
+	content: ''; /* Không có nội dung cho phần tử giả sau */
+	position: absolute; /* Đặt vị trí của phần tử giả sau là tuyệt đối */
+	left: 0; /* Đặt vị trí bên trái cho phần tử giả sau là 0 */
+	top: 0; /* Đặt vị trí trên cùng cho phần tử giả sau là 0 */
+	height: 100%; /* Đặt chiều cao cho phần tử giả sau bằng 100% */
+	width: 100%; /* Đặt chiều rộng cho phần tử giả sau bằng 100% */
+	background-image: linear-gradient(60deg, #29323c 0%, #485563 100%); /* Đặt gradient cho nền của phần tử giả sau */
+	opacity: 0.9; /* Đặt độ trong suốt cho phần tử giả sau */
+	z-index: -1; /* Đặt z-index để phần tử giả sau nằm dưới các phần tử khác */
+}
+#services .service-bottom .icon {
+	height: 80px; /* Đặt chiều cao cho biểu tượng dịch vụ */
+	width: 80px; /* Đặt chiều rộng cho biểu tượng dịch vụ */
+	margin-bottom: 20px; /* Đặt khoảng cách dưới cho biểu tượng dịch vụ */
+}
+#services .service-item h2 {
+	font-size: 2rem; /* Đặt kích thước font cho tiêu đề dịch vụ */
+	color: white; /* Đặt màu chữ cho tiêu đề dịch vụ là trắng */
+	margin-bottom: 10px; /* Đặt khoảng cách dưới cho tiêu đề dịch vụ */
+	text-transform: uppercase; /* Chuyển đổi tất cả các chữ cái trong tiêu đề dịch vụ thành chữ hoa */
+}
+#services .service-item p {
+	color: white; /* Đặt màu chữ cho đoạn văn trong mục dịch vụ là trắng */
+	text-align: left; /* Căn trái đoạn văn trong mục dịch vụ */
+}
+/* End Services Section */
+
+/* Projects section */
+#projects .projects {
+	flex-direction: column; /* Đặt hướng của các phần tử trong dự án là cột */
+	max-width: 1200px; /* Đặt chiều rộng tối đa cho phần dự án */
+	margin: 0 auto; /* Căn giữa phần dự án */
+	padding: 100px 0; /* Đặt padding cho phần dự án */
+}
+#projects .projects-header h1 {
+	margin-bottom: 50px; /* Đặt khoảng cách dưới cho tiêu đề phần dự án */
+}
+#projects .all-projects {
+	display: flex; /* Sử dụng flexbox để bố trí các phần tử trong tất cả các dự án */
+	align-items: center; /* Căn giữa các phần tử theo chiều dọc */
+	justify-content: center; /* Căn giữa các phần tử theo chiều ngang */
+	flex-direction: column; /* Đặt hướng của các phần tử bên trong là cột */
+}
+#projects .project-item {
+	display: flex; /* Sử dụng flexbox để bố trí các phần tử bên trong mục dự án */
+	align-items: center; /* Căn giữa các phần tử theo chiều dọc */
+	justify-content: center; /* Căn giữa các phần tử theo chiều ngang */
+	flex-direction: column; /* Đặt hướng của các phần tử bên trong mục dự án là cột */
+	width: 80%; /* Đặt chiều rộng cho mỗi mục dự án là 80% */
+	margin: 20px auto; /* Đặt khoảng cách cho mỗi mục dự án */
+	overflow: hidden; /* Ẩn phần tràn cho mục dự án */
+	border-radius: 10px; /* Bo tròn các góc của mục dự án */
+}
+#projects .project-info {
+	padding: 30px; /* Đặt padding cho thông tin dự án */
+	flex-basis: 50%; /* Đặt chiều rộng cơ bản cho thông tin dự án là 50% */
+	height: 100%; /* Đặt chiều cao cho thông tin dự án bằng 100% */
+	display: flex; /* Sử dụng flexbox để bố trí các phần tử bên trong thông tin dự án */
+	align-items: flex-start; /* Căn trên các phần tử theo chiều dọc */
+	justify-content: center; /* Căn giữa các phần tử theo chiều ngang */
+	flex-direction: column; /* Đặt hướng của các phần tử bên trong thông tin dự án là cột */
+	background-image: linear-gradient(60deg, #29323c 0%, #485563 100%); /* Đặt gradient cho nền của thông tin dự án */
+	color: white; /* Đặt màu chữ cho thông tin dự án là trắng */
+}
+#projects .project-info h1 {
+	font-size: 4rem; /* Đặt kích thước font cho tiêu đề thông tin dự án */
+	font-weight: 500; /* Đặt độ đậm cho font chữ */
+}
+#projects .project-info h2 {
+	font-size: 1.8rem; /* Đặt kích thước font cho tiêu đề phụ trong thông tin dự án */
+	font-weight: 500; /* Đặt độ đậm cho font chữ */
+	margin-top: 10px; /* Đặt khoảng cách trên cho tiêu đề phụ trong thông tin dự án */
+}
+#projects .project-info p {
+	color: white; /* Đặt màu chữ cho đoạn văn trong thông tin dự án là trắng */
+}
+#projects .project-img {
+	flex-basis: 50%; /* Đặt chiều rộng cơ bản cho hình ảnh dự án là 50% */
+	height: 300px; /* Đặt chiều cao cho hình ảnh dự án */
+	overflow: hidden; /* Ẩn phần tràn cho hình ảnh dự án */
+	position: relative; /* Đặt vị trí của hình ảnh dự án là tương đối */
+}
+#projects .project-img:after {
+	content: ''; /* Không có nội dung cho phần tử giả sau */
+	position: absolute; /* Đặt vị trí của phần tử giả sau là tuyệt đối */
+	left: 0; /* Đặt vị trí bên trái cho phần tử giả sau là 0 */
+	top: 0; /* Đặt vị trí trên cùng cho phần tử giả sau là 0 */
+	height: 100%; /* Đặt chiều cao cho phần tử giả sau bằng 100% */
+	width: 100%; /* Đặt chiều rộng cho phần tử giả sau bằng 100% */
+	opacity: 0.7; /* Đặt độ trong suốt cho phần tử giả sau */
+}
+#projects .project-img img {
+	transition: 0.3s ease transform; /* Thiết lập hiệu ứng chuyển tiếp cho hình ảnh dự án */
+}
+#projects .project-item:hover .project-img img {
+	transform: scale(1.1); /* Phóng to hình ảnh dự án khi hover */
+}
+/* End Projects section */
+
+
+/* contact Section */
+#contact .contact {
+	flex-direction: column; /* Đặt hướng của các phần tử trong phần liên hệ là cột */
+	max-width: 1200px; /* Đặt chiều rộng tối đa cho phần liên hệ */
+	margin: 0 auto; /* Căn giữa phần liên hệ */
+	width: 90%; /* Đặt chiều rộng cho phần liên hệ bằng 90% */
+}
+#contact .contact-items {
+	/* max-width: 400px; */ /* Chiều rộng tối đa cho các mục liên hệ (bị bỏ qua) */
+	width: 100%; /* Đặt chiều rộng cho các mục liên hệ bằng 100% */
+}
+#contact .contact-item {
+	width: 80%; /* Đặt chiều rộng cho mỗi mục liên hệ là 80% */
+	padding: 20px; /* Đặt padding cho mỗi mục liên hệ */
+	text-align: center; /* Căn giữa văn bản trong mỗi mục liên hệ */
+	border-radius: 10px; /* Bo tròn các góc của mỗi mục liên hệ */
+	padding: 30px; /* Đặt padding cho mỗi mục liên hệ */
+	margin: 30px; /* Đặt khoảng cách cho mỗi mục liên hệ */
+	display: flex; /* Sử dụng flexbox để bố trí các phần tử bên trong mỗi mục liên hệ */
+	justify-content: center; /* Căn giữa các phần tử theo chiều ngang */
+	align-items: center; /* Căn giữa các phần tử theo chiều dọc */
+	flex-direction: column; /* Đặt hướng của các phần tử bên trong mỗi mục liên hệ là cột */
+	box-shadow: 0px 0px 18px 0 #0000002c; /* Đặt bóng cho mỗi mục liên hệ */
+	transition: 0.3s ease box-shadow; /* Thiết lập hiệu ứng chuyển tiếp cho bóng của mỗi mục liên hệ */
+}
+#contact .contact-item:hover {
+	box-shadow: 0px 0px 5px 0 #0000002c; /* Đặt bóng cho mỗi mục liên hệ khi hover */
+}
+#contact .icon {
+	width: 70px; /* Đặt chiều rộng cho biểu tượng trong phần liên hệ */
+	margin: 0 auto; /* Căn giữa biểu tượng trong phần liên hệ */
+	margin-bottom: 10px; /* Đặt khoảng cách dưới cho biểu tượng trong phần liên hệ */
+}
+#contact .contact-info h1 {
+	font-size: 2.5rem; /* Đặt kích thước font cho tiêu đề trong phần liên hệ */
+	font-weight: 500; /* Đặt độ đậm cho font chữ */
+	margin-bottom: 5px; /* Đặt khoảng cách dưới cho tiêu đề trong phần liên hệ */
+}
+#contact .contact-info h2 {
+	font-size: 1.3rem; /* Đặt kích thước font cho tiêu đề phụ trong phần liên hệ */
+	line-height: 2rem; /* Đặt chiều cao dòng cho tiêu đề phụ trong phần liên hệ */
+	font-weight: 500; /* Đặt độ đậm cho font chữ */
+}
+/*End contact Section */
+
+/* Footer */
+#footer {
+	background-image: linear-gradient(60deg, #29323c 0%, #485563 100%); /* Đặt gradient cho nền của footer */
+}
+#footer .footer {
+	min-height: 200px; /* Đặt chiều cao tối thiểu cho footer */
+	flex-direction: column; /* Đặt hướng của các phần tử trong footer là cột */
+	padding-top: 50px; /* Đặt padding trên cho footer */
+	padding-bottom: 10px; /* Đặt padding dưới cho footer */
+}
+#footer h2 {
+	color: white; /* Đặt màu chữ cho tiêu đề trong footer là trắng */
+	font-weight: 500; /* Đặt độ đậm cho font chữ */
+	font-size: 1.8rem; /* Đặt kích thước font cho tiêu đề trong footer */
+	letter-spacing: 0.1rem; /* Đặt khoảng cách giữa các chữ cái cho tiêu đề trong footer */
+	margin-top: 10px; /* Đặt khoảng cách trên cho tiêu đề trong footer */
+	margin-bottom: 10px; /* Đặt khoảng cách dưới cho tiêu đề trong footer */
+}
+#footer .social-icon {
+	display: flex; /* Sử dụng flexbox để bố trí các biểu tượng xã hội trong footer */
+	margin-bottom: 30px; /* Đặt khoảng cách dưới cho các biểu tượng xã hội trong footer */
+}
+#footer .social-item {
+	height: 50px; /* Đặt chiều cao cho mỗi biểu tượng xã hội */
+	width: 50px; /* Đặt chiều rộng cho mỗi biểu tượng xã hội */
+	margin: 0 5px; /* Đặt khoảng cách cho mỗi biểu tượng xã hội */
+}
+#footer .social-item img {
+	filter: grayscale(1); /* Đặt hiệu ứng grayscale cho hình ảnh biểu tượng xã hội */
+	transition: 0.3s ease filter; /* Thiết lập hiệu ứng chuyển tiếp cho hiệu ứng grayscale */
+}
+#footer .social-item:hover img {
+	filter: grayscale(0); /* Bỏ hiệu ứng grayscale khi hover vào biểu tượng xã hội */
+}
+#footer p {
+	color: white; /* Đặt màu chữ cho đoạn văn trong footer là trắng */
+	font-size: 1.3rem; /* Đặt kích thước font cho đoạn văn trong footer */
+}
+/* End Footer */
+
+/* Keyframes */
+@keyframes hamburger_puls {
+	0% {
+		opacity: 1; /* Đặt độ trong suốt của phần tử là 1 (hoàn toàn hiển thị) tại thời điểm bắt đầu */
+		transform: scale(1); /* Đặt kích thước của phần tử là 1 (kích thước gốc) tại thời điểm bắt đầu */
+	}
+	100% {
+		opacity: 0; /* Đặt độ trong suốt của phần tử là 0 (hoàn toàn ẩn) tại thời điểm kết thúc */
+		transform: scale(1.4); /* Phóng to phần tử lên 1.4 lần tại thời điểm kết thúc */
+	}
+}
+@keyframes text_reveal_box {
+	50% {
+		width: 100%; /* Đặt chiều rộng của phần tử là 100% tại giữa hiệu ứng */
+		left: 0; /* Đặt vị trí bên trái của phần tử là 0 tại giữa hiệu ứng */
+	}
+	100% {
+		width: 0; /* Đặt chiều rộng của phần tử là 0 tại thời điểm kết thúc */
+		left: 100%; /* Đặt vị trí bên trái của phần tử là 100% tại thời điểm kết thúc */
+	}
+}
+@keyframes text_reveal {
+	100% {
+		color: white; /* Đặt màu chữ cho phần tử là trắng tại thời điểm kết thúc */
+	}
+}
+@keyframes text_reveal_name {
+	100% {
+		color: crimson; /* Đặt màu chữ cho phần tử là màu đỏ thẫm tại thời điểm kết thúc */
+		font-weight: 500; /* Đặt độ đậm cho font chữ là 500 tại thời điểm kết thúc */
+	}
+}
+/* End Keyframes */
+
+/* Media Query For Tablet */
+@media only screen and (min-width: 768px) {
+	.cta {
+		font-size: 2.5rem; /* Đặt kích thước font cho nút CTA trên thiết bị tablet */
+		padding: 20px 60px; /* Đặt padding cho nút CTA trên thiết bị tablet */
+	}
+	h1.section-title {
+		font-size: 6rem; /* Đặt kích thước font cho tiêu đề phần trên thiết bị tablet */
+	}
+
+	/* Hero */
+	#hero h1 {
+		font-size: 7rem; /* Đặt kích thước font cho tiêu đề h1 trong phần hero trên thiết bị tablet */
+	}
+	/* End Hero */
+
+	/* Services Section */
+	#services .service-bottom .service-item {
+		flex-basis: 45%; /* Đặt chiều rộng cơ bản cho mỗi mục dịch vụ trên thiết bị tablet là 45% */
+		margin: 2.5%; /* Đặt khoảng cách cho mỗi mục dịch vụ trên thiết bị tablet */
+	}
+	/* End Services Section */
+
+	/* Project */
+	#projects .project-item {
+		flex-direction: row; /* Đặt hướng của các phần tử trong mục dự án là hàng trên thiết bị tablet */
+	}
+	#projects .project-item:nth-child(even) {
+		flex-direction: row-reverse; /* Đặt hướng của các phần tử trong mục dự án là hàng ngược cho các mục dự án chẵn */
+	}
+	#projects .project-item {
+		height: 400px; /* Đặt chiều cao cho mỗi mục dự án trên thiết bị tablet */
+		margin: 0; /* Đặt khoảng cách cho mỗi mục dự án là 0 trên thiết bị tablet */
+		width: 100%; /* Đặt chiều rộng cho mỗi mục dự án là 100% trên thiết bị tablet */
+		border-radius: 0; /* Bỏ bo tròn các góc của mục dự án trên thiết bị tablet */
+	}
+	#projects .all-projects .project-info {
+		height: 100%; /* Đặt chiều cao cho thông tin dự án là 100% trên thiết bị tablet */
+	}
+	#projects .all-projects .project-img {
+		height: 100%; /* Đặt chiều cao cho hình ảnh dự án là 100% trên thiết bị tablet */
+	}
+	/* End Project */
+
+
+	/* contact  */
+	#contact .contact {
+		flex-direction: column; /* Đặt hướng của các phần tử trong phần liên hệ là cột trên thiết bị tablet */
+		padding: 100px 0; /* Đặt padding cho phần liên hệ trên thiết bị tablet */
+		align-items: center; /* Căn giữa các phần tử theo chiều dọc trong phần liên hệ */
+		justify-content: center; /* Căn giữa các phần tử theo chiều ngang trong phần liên hệ */
+		min-width: 20vh; /* Đặt chiều rộng tối thiểu cho phần liên hệ là 20vh */
+	}
+	#contact .contact-items {
+		width: 100%; /* Đặt chiều rộng cho các mục liên hệ bằng 100% trên thiết bị tablet */
+		display: flex; /* Sử dụng flexbox để bố trí các phần tử trong các mục liên hệ */
+		flex-direction: row; /* Đặt hướng của các phần tử trong các mục liên hệ là hàng */
+		justify-content: space-evenly; /* Căn giữa các phần tử với khoảng cách đều trong các mục liên hệ */
+		margin: 0; /* Đặt khoảng cách cho các mục liên hệ là 0 trên thiết bị tablet */
+	}
+	#contact .contact-item {
+		width: 30%; /* Đặt chiều rộng cho mỗi mục liên hệ là 30% trên thiết bị tablet */
+		margin: 0; /* Đặt khoảng cách cho mỗi mục liên hệ là 0 trên thiết bị tablet */
+		flex-direction: row; /* Đặt hướng của các phần tử bên trong mỗi mục liên hệ là hàng */
+	}
+	#contact .contact-item .icon {
+		height: 100px; /* Đặt chiều cao cho biểu tượng trong phần liên hệ là 100px trên thiết bị tablet */
+		width: 100px; /* Đặt chiều rộng cho biểu tượng trong phần liên hệ là 100px trên thiết bị tablet */
+	}
+	#contact .contact-item .icon img {
+		object-fit: contain; /* Đảm bảo hình ảnh biểu tượng trong phần liên hệ không bị biến dạng */
+	}
+	#contact .contact-item .contact-info {
+		width: 100%; /* Đặt chiều rộng cho thông tin liên hệ bằng 100% trên thiết bị tablet */
+		text-align: left; /* Căn trái văn bản trong thông tin liên hệ trên thiết bị tablet */
+		padding-left: 20px; /* Đặt padding bên trái cho thông tin liên hệ trên thiết bị tablet */
+	}
+	/* End contact  */
+}
+/* End Media Query For Tablet */
+
+/* Media Query For Desktop */
+@media only screen and (min-width: 1200px) {
+	/* header */
+	#header .hamburger {
+		display: none; /* Ẩn nút hamburger trên thiết bị desktop */
+	}
+	#header .nav-list ul {
+		position: initial; /* Đặt vị trí của danh sách là ban đầu trên thiết bị desktop */
+		display: block; /* Đặt chế độ hiển thị cho danh sách là block trên thiết bị desktop */
+		height: auto; /* Đặt chiều cao cho danh sách là tự động trên thiết bị desktop */
+		width: fit-content; /* Đặt chiều rộng cho danh sách theo nội dung trên thiết bị desktop */
+		background-color: transparent; /* Đặt màu nền cho danh sách là trong suốt trên thiết bị desktop */
+	}
+	#header .nav-list ul li {
+		display: inline-block; /* Đặt chế độ hiển thị cho các mục trong danh sách là inline-block trên thiết bị desktop */
+	}
+	#header .nav-list ul li a {
+		font-size: 1.8rem; /* Đặt kích thước font cho các liên kết trong danh sách trên thiết bị desktop */
+	}
+	#header .nav-list ul a:after {
+		display: none; /* Ẩn phần tử giả sau cho các liên kết trong danh sách trên thiết bị desktop */
+	}
+	/* End header */
+
+	#services .service-bottom .service-item {
+		flex-basis: 22%; /* Đặt chiều rộng cơ bản cho mỗi mục dịch vụ trên thiết bị desktop là 22% */
+		margin: 1.5%; /* Đặt khoảng cách cho mỗi mục dịch vụ trên thiết bị desktop */
+	}
+}
+/* End  Media Query For Desktop */
+
+/* Video Player Styles */
+/* Thiết lập chung */
+#video-player {
+    display: flex; /* Sử dụng flexbox để bố trí các phần tử bên trong video player */
+    justify-content: center; /* Căn giữa các phần tử theo chiều ngang */
+    align-items: center; /* Căn giữa các phần tử theo chiều dọc */
+    flex-direction: column; /* Đặt hướng của các phần tử bên trong video player là cột */
+    background-color: #424E5C; /* Đặt màu nền cho video player */
+    padding: 20px; /* Đặt padding cho video player */
+    color: white; /* Đặt màu chữ cho video player là trắng */
+}
+
+.video-player.container {
+    display: flex; /* Sử dụng flexbox để bố trí các phần tử bên trong video player container */
+    flex-direction: column; /* Đặt hướng của các phần tử bên trong video player container là cột */
+}
+
+/* Vùng chứa video */
+.player-wrapper {
+    background: #132639; /* Đặt màu nền cho vùng chứa video */
+    padding: 15px; /* Đặt padding cho vùng chứa video */
+    border-radius: 10px; /* Bo tròn các góc của vùng chứa video */
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.4); /* Đặt bóng cho vùng chứa video */
+    max-width: 800px; /* Đặt chiều rộng tối đa cho vùng chứa video */
+    width: 100%; /* Đặt chiều rộng cho vùng chứa video bằng 100% */
+    text-align: center; /* Căn giữa văn bản trong vùng chứa video */
+}
+
+/* Video */
+#main-video {
+    width: 100%; /* Đặt chiều rộng cho video bằng 100% */
+    border-radius: 5px; /* Bo tròn các góc của video */
+    outline: none; /* Bỏ viền cho video */
+}
+
+/* Thanh điều khiển */
+.video-controls {
+    display: flex; /* Sử dụng flexbox để bố trí các phần tử bên trong thanh điều khiển */
+    align-items: center; /* Căn giữa các phần tử theo chiều dọc trong thanh điều khiển */
+    justify-content: space-between; /* Căn giữa các phần tử theo chiều ngang với khoảng cách đều trong thanh điều khiển */
+    background: #222; /* Đặt màu nền cho thanh điều khiển */
+    padding: 10px; /* Đặt padding cho thanh điều khiển */
+    border-radius: 5px; /* Bo tròn các góc của thanh điều khiển */
+    margin-top: 10px; /* Đặt khoảng cách trên cho thanh điều khiển */
+}
+
+/* Nút bấm */
+.video-controls button {
+    background-color: #ff0000; /* Đặt màu nền cho nút bấm là đỏ */
+    color: white; /* Đặt màu chữ cho nút bấm là trắng */
+    border: none; /* Bỏ viền cho nút bấm */
+    padding: 8px 12px; /* Đặt padding cho nút bấm */
+    border-radius: 4px; /* Bo tròn các góc của nút bấm */
+    cursor: pointer; /* Đặt con trỏ chuột thành hình bàn tay khi hover vào nút bấm */
+    font-weight: bold; /* Đặt độ đậm cho font chữ của nút bấm */
+    transition: background 0.3s ease; /* Thiết lập hiệu ứng chuyển tiếp cho màu nền của nút bấm */
+}
+
+.video-controls button:hover {
+    background-color: #cc0000; /* Đặt màu nền cho nút bấm khi hover là màu đỏ đậm hơn */
+}
+
+/* Thanh trượt */
+.video-controls input[type="range"] {
+    -webkit-appearance: none; /* Bỏ kiểu mặc định của thanh trượt trên trình duyệt WebKit */
+    width: 100px; /* Đặt chiều rộng cho thanh trượt */
+    height: 5px; /* Đặt chiều cao cho thanh trượt */
+    background: #444; /* Đặt màu nền cho thanh trượt */
+    border-radius: 5px; /* Bo tròn các góc của thanh trượt */
+    outline: none; /* Bỏ viền cho thanh trượt */
+    cursor: pointer; /* Đặt con trỏ chuột thành hình bàn tay khi hover vào thanh trượt */
+}
+
+.video-controls input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none; /* Bỏ kiểu mặc định của nút trượt trên trình duyệt WebKit */
+    width: 12px; /* Đặt chiều rộng cho nút trượt */
+    height: 12px; /* Đặt chiều cao cho nút trượt */
+    background: #ff0000; /* Đặt màu nền cho nút trượt là đỏ */
+    border-radius: 50%; /* Bo tròn nút trượt */
+    cursor: pointer; /* Đặt con trỏ chuột thành hình bàn tay khi hover vào nút trượt */
+}
+
+.video-controls input[type="range"]:hover {
+    background: #ff4444; /* Đặt màu nền cho thanh trượt khi hover là màu đỏ nhạt hơn */
+}
+/* End Video Player Styles */
